@@ -1,9 +1,11 @@
 .App {
   text-align: center;
-  background-image: url('/public/stock_map.png');
 }
 
 .App-header {
-	
+  text-align: center;
+  position: static;
+  background-image: '/public/stock_map.png';
+  vertical-align: center;  
 }
 
