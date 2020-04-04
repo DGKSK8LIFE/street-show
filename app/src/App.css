@@ -3,6 +3,6 @@
 }
 
 body {
-  background-image: 'app/public/stock_map.png';
+  background-image: url('stock_map.png');
 }
 
