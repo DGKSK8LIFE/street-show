@@ -6,18 +6,10 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-        	LMAO #REKT 
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <form>
+          <input class="search" type="text" placeholder="Search by name"></input>
+          <button type="submit"><i class="submit-search"></i></button>
+        </form>
       </header>
     </div>
   );
