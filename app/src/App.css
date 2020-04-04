@@ -2,3 +2,7 @@
   text-align: center;
 }
 
+body {
+  background-image: 'app/public/stock_map.png';
+}
+
