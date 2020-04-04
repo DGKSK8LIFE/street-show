@@ -4,13 +4,15 @@ import ReactDOM from 'react-dom';
 class App extends Component {
 	render() {
 		return (
-			<h1>HELLO WORLD!</h1>		
+			<div class="root">
+				<h1>HELLO WORLD!</h1>
+			</div>
 		)	
 	}	
 }
 
 ReactDOM.render (
-	<App />,
+	App,
 	document.getElementById('root')
 );
 
