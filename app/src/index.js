@@ -12,7 +12,7 @@ class App extends Component {
 }
 
 ReactDOM.render (
-	App,
+	React.createElement(<App />),
 	document.getElementById('root')
 );
 
