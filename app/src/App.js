@@ -12,6 +12,7 @@ const useStyles = makeStyles((theme) => ({
   button: {
     '& > *': {
       margin: theme.spacing(1),
+      width: '10ch',
     },
   },
 }));
@@ -24,8 +25,8 @@ function App() {
     <div style={{ display: `flex`, justifyContent: `center`, alignItems: `center` }}>
       <header className="App-header">
         <form>
-          <TextField className={classes.root} id="outlined-search" label="Search by name" varient="filled" type="search" />
-          <Button className={classes.button} variant="outlined" color="default" type="submit" size="small">
+          <TextField className={classes.root} id="outlined-search" label="Search by name" varient="filled" type="search" size="large" />
+          <Button className={classes.button} variant="outlined" color="default" type="submit" size="large">
             Search
           </Button>
         </form>
