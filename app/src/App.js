@@ -11,7 +11,7 @@ function App() {
       <header className="App-header">
         <form>
           <TextField className={classes.root} id="outlined-search" label="Search for Buskers near you" varient="filled" type="search" size="large" />
-          <ColorButton variant="contained" color="primary" className={classes.margin}>
+          <ColorButton variant="contained" color="primary" className={classes.margin} type="submit">
             Search
           </ColorButton>
         </form>
