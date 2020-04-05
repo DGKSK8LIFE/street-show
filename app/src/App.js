@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import './bootstrap.css'
+import './bootstrap.css';
 
 function App() {
   return (
