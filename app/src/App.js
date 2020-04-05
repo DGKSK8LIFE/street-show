@@ -32,7 +32,7 @@ function App() {
     <div style={{ display: `flex`, justifyContent: `center`, alignItems: `center` }}>
       <header className="App-header">
         <form>
-          <TextField className={classes.root} id="outlined-search" label="Search by name" varient="filled" type="search" size="large" />
+          <TextField className={classes.root} id="outlined-search" label="Search for Buskers near you" varient="filled" type="search" size="large" />
           <ColorButton variant="contained" color="primary" className={classes.margin}>
             Search
           </ColorButton>
