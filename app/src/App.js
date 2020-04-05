@@ -1,14 +1,25 @@
 import React from 'react';
 import './App.css';
-import './bootstrap.css';
-import '@material-ui/core';
+import { TextField, makeStyles } from '@material-ui/core';
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    '& .MuiTextField-root': {
+      margin: theme.spacing(1),
+      width: '25ch',
+    },
+  },
+}));
+
 
 function App() {
+  const classes = useStyles()
+
   return (
-    <div className="App" style={{ display: `flex`, justifyContent: `center`, alignItems: `center` }}>
+    <div className={classes.root} style={{ display: `flex`, justifyContent: `center`, alignItems: `center` }}>
       <header className="App-header">
-        <form class="form-inline my-2 my-lg-0">
-          <input class="form-control form-control-lg" type="text" placeholder="Search by name"></input>
+        <form>
+          <TextField id="outlined-search" label="Search by name" varient="filled" type="search" />
           <input class="btn btn-secondary btn-lg" type="submit" value="search"></input>
         </form>
       </header>
