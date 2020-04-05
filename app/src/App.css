@@ -2,4 +2,6 @@ body {
   background-image: url('stock_map.png');
 }
 
-
+form {
+  size:150%;
+}
