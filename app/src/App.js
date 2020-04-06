@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import LandingPage from './LandingPage';
 import RestingReviewCard from './BuskerList';
-import { BrowserRouter as Router, Switch, Route } from 'react-dom';
+import { BrowserRouter as Router, Route } from 'react-dom';
 
 function App() {
   return (
@@ -12,8 +12,7 @@ function App() {
         <Route path="/buskerlist" component={RestingReviewCard} />
       </div>
     </Router>
-  )
-
+  );
 }
 
 export default App;
