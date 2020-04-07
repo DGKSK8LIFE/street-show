@@ -1,5 +1,5 @@
 body {
-  background-image: url('stock_map.png');
+  background-image: url('../public/stock_map.png');
 }
 
 form {
