@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import LandingPage from './LandingPage';
-import  RecipeReviewCard  from './BuskerList';
+import RecipeReviewCard from './BuskerList';
 import { BrowserRouter, Route } from 'react-dom';
 
 function App() {
