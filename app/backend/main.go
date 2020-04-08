@@ -1,40 +1,47 @@
 package main
 
 import (
-	"github.com/gin-gonic/gin"
-	"github.com/jinzhu/gorm"
-	_ "github.com/jinzhu/gorm/dilacts/mysql"
 	"fmt"
-	"gopkg.in/yaml.v2"
 	"io/ioutil"
 	"log"
+
+	"github.com/gin-gonic/gin"
+	"github.com/jinzhu/gorm"
+	_ "github.com/jinzhu/gorm/dialects/mysql"
+	"gopkg.in/yaml.v2"
 )
 
 type DB_info struct {
-	User string  `yaml:"user"`
+	User     string `yaml:"user"`
 	Password string `yaml:"password"`
-	Port uint32 	`yaml:"port"`
-	Db_name string 	`yaml:"db_name"`
+	Port     uint32 `yaml:"port"`
+	Db_name  string `yaml:"db_name"`
 }
 
-var db 
+var db *gorm.DB
 
 func init() {
 	infoStruct := DB_info{}
 	file, err := ioutil.ReadFile("db_info.yaml")
 	if err != nil {
-		log.Fatalf("database info file error: %s\n", err)	
+		log.Fatalf("database info file error: %s\n", err)
 	}
 	err = yaml.Unmarshal(file, infoStruct)
-	db, err := gorm.Open("mysql", "[dbinfo]")
+	if err != nil {
+		log.Fatalf("unmarshalling problem: %s\n", err)
+	}
+	db, err = gorm.Open("mysql", fmt.Sprintf("%s:%s@tcp(localhost:%d)/%s", infoStruct.User, infoStruct.Password, infoStruct.Port, infoStruct.Db_name))
+	if err != nil {
+		log.Fatalf("database opening error: %s\n", err)
+	}
 }
 
 func main() {
 	r := gin.Default()
-	r.GET("/", func(c *gin.Content) {
-	
+	r.GET("/", func(c *gin.Context) {
+
 	})
-	r.POST("/buskerlist", func(c *gin.Content) {
+	r.POST("/buskerlist", func(c *gin.Context) {
 
 	})
 
