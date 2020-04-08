@@ -2,6 +2,7 @@ import React from 'react';
 import { TextField, } from '@material-ui/core';
 import { useStyles, ColorButton } from './Styles';
 import './App.css';
+import SimpleBottomNavigation from './Footer';
 
 function LandingPage() {
     const classes = useStyles()
@@ -13,7 +14,7 @@ function LandingPage() {
                     <TextField className={classes.root} id="outlined-search" label="Search for Buskers near you" varient="filled" type="search" size="large" />
                     <ColorButton variant="contained" color="primary" className={classes.margin} type="submit">
                         Search
-          </ColorButton>
+                    </ColorButton>
                 </form>
             </header>
         </div>
