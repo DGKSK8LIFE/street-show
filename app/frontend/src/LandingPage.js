@@ -1,6 +1,7 @@
 import React from 'react';
 import { TextField, } from '@material-ui/core';
 import { useStyles, ColorButton } from './Styles';
+import './App.css';
 
 function LandingPage() {
     const classes = useStyles()
