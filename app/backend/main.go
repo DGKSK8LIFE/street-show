@@ -44,5 +44,4 @@ func main() {
 	r.POST("/buskerlist", func(c *gin.Context) {
 
 	})
-
 }
