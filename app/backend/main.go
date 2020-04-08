@@ -21,7 +21,7 @@ type DB_info struct {
 var db *gorm.DB
 
 func init() {
-	infoStruct := DB_info{}
+	infoStruct := &DB_info{}
 	file, err := ioutil.ReadFile("db_info.yaml")
 	if err != nil {
 		log.Fatalf("database info file error: %s\n", err)
