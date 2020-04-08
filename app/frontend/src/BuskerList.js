@@ -116,4 +116,4 @@ function RecipeReviewCard() {
     );
 }
 
-export default RecipeReviewCard ;
+export default RecipeReviewCard;
