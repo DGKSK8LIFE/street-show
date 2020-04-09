@@ -40,4 +40,5 @@ func init() {
 func main() {
 	r := gin.Default()
 	r.GET("/", handler.ServeHome)
+	r.Run()
 }
