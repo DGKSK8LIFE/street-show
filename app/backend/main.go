@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"log"
+	"street/app/backend/handler"
 
 	"github.com/gin-gonic/gin"
 	"github.com/jinzhu/gorm"
@@ -38,10 +39,5 @@ func init() {
 
 func main() {
 	r := gin.Default()
-	r.GET("/", func(c *gin.Context) {
-
-	})
-	r.POST("/buskerlist", func(c *gin.Context) {
-
-	})
+	r.GET("/", handler.ServeHome)
 }
