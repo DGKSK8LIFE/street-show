@@ -1,8 +1,8 @@
 package main
 
 import (
-	"street/app/backend/dbcrud"
-	"street/app/backend/handler"
+	"street-show/app/backend/dbcrud"
+	"street-show/app/backend/handler"
 
 	"github.com/gin-gonic/gin"
 	_ "github.com/jinzhu/gorm/dialects/mysql"
