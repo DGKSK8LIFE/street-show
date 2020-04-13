@@ -5,6 +5,7 @@ import (
 	"io/ioutil"
 	"log"
 	"street-show/app/backend/handler"
+
 	"github.com/jinzhu/gorm"
 	_ "github.com/jinzhu/gorm/dialects/mysql"
 	"gopkg.in/yaml.v2"
@@ -36,5 +37,5 @@ func Open(filename string) {
 }
 
 func SelectAll(u *handler.User) interface{} {
-	return DB.Find(&u)
+	return DB.Find(u)
 }
