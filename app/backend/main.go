@@ -13,5 +13,6 @@ func init() {
 
 func main() {
 	r := gin.Default()
+	r.POST("/api/user/:user", hander.UserApi)
 	r.Run()
 }
