@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"log"
-
+	"street-show/app/backend/handler"
 	"github.com/jinzhu/gorm"
 	_ "github.com/jinzhu/gorm/dialects/mysql"
 	"gopkg.in/yaml.v2"
@@ -33,4 +33,8 @@ func Open(filename string) {
 	if err != nil {
 		log.Fatalf("database opening error: %s\n", err)
 	}
+}
+
+func SelectAll(u *handler.User) interface{} {
+	return DB.Find(&u)
 }
