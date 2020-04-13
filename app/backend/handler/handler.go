@@ -2,6 +2,6 @@ package handler
 
 import "github.com/gin-gonic/gin"
 
-func ServeHome(c *gin.Context) {
+func UserApi(c *gin.Context) {
 
 }
