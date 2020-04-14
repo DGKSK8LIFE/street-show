@@ -1,6 +1,11 @@
 package handler
 
-import "github.com/gin-gonic/gin"
+import (
+	"log"
+	"net/url"
+
+	"github.com/gin-gonic/gin"
+)
 
 type UserAndBusker struct {
 	Username string
@@ -10,5 +15,8 @@ type UserAndBusker struct {
 }
 
 func BuskerApi(c *gin.Context) {
-	busker := c.Param("busker")
+	busker, err := url.QueryUnescape(c.Param("busker"))
+	if err != nil {
+		log.Fatalf("QueryUnescape err: %s\n", err)
+	}
 }
