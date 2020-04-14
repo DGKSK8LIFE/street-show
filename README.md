@@ -8,3 +8,5 @@ An application that allows buskers to show the location and time of their perfor
 - React
 - HTML/CSS
 - Material-UI
+- Gin router
+- Gorm
