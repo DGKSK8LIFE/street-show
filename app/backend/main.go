@@ -13,6 +13,7 @@ func init() {
 	dbcrud.Open("db_info.yaml")
 }
 
+// main just declares routes and imports the handler module (mine) to serve accordingly
 func main() {
 	r := gin.Default()
 	r.GET("/api/busker", handler.BuskerApi)
