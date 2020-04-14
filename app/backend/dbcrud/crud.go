@@ -59,3 +59,15 @@ func (u *Busker) SelectLike(likeString string) {
 func (u *Busker) CreateBusker() {
 	DB.Create(&u)
 }
+
+func (u *User) SelectAllUser() {
+	DB.Find(&u)
+}
+
+func (u *User) SelectLikeUser(likeString string) {
+	DB.Where("username LIKE ? OR name LIKE ?", likeString, likeString).Find(&u)
+}
+
+func (u *User) CreateUser() {
+	DB.Create(&u)
+}
