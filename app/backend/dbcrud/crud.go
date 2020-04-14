@@ -48,3 +48,7 @@ func (u *Busker) SelectAll() {
 func (u *Busker) SelectLike(likeString string) {
 	DB.Where("username LIKE ? OR name LIKE ?", likeString, likeString).Find(&u)
 }
+
+func (u *Busker) CreateBusker() {
+	DB.Create(&u)
+}
