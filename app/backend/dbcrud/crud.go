@@ -14,12 +14,14 @@ import (
 	"gopkg.in/yaml.v2"
 )
 
+// DB_info contains fields that correspond to the database configuration file, db_info.yaml
 type DB_info struct {
 	User     string `yaml:"user"`
 	Password string `yaml:"password"`
 	Port     uint32 `yaml:"port"`
 }
 
+// User contains all fields that correspond to the User MySQL columns
 type User struct {
 	Username string `gorm"column:username" json:"username"`
 	Name     string `gorm:"column:name" json:"name"`
@@ -27,6 +29,7 @@ type User struct {
 	Id       uint64 `gorm:"column:id" json:"id"`
 }
 
+// Busker contains all fields that correspond to the Busker MySQL columns
 type Busker struct {
 	Username string `gorm"column:username" json:"username"`
 	Name     string `gorm:"column:name" json:"name"`
@@ -34,8 +37,10 @@ type Busker struct {
 	Id       uint64 `gorm:"column:id" json:"id"`
 }
 
+// DB is the instance of a gorm database
 var DB *gorm.DB
 
+// Open reads from the database config file (db_info.yaml), then accordingly establishes a localhost connection to the database
 func Open(filename string) {
 	infoStruct := &DB_info{}
 	file, err := ioutil.ReadFile(filename)
@@ -52,26 +57,32 @@ func Open(filename string) {
 	}
 }
 
+// SelectAll selects all busker rows from the Busker table
 func (b *Busker) SelectAll() {
 	DB.Find(&b)
 }
 
+// SelectLike selects all busker rows from the Busker table that share similar usernames or names to the likeString arg
 func (b *Busker) SelectLike(likeString string) {
 	DB.Where("username LIKE ? OR name LIKE ?", likeString, likeString).Find(&b)
 }
 
+// CreateBusker creates a new SQL Busker row
 func (b *Busker) CreateBusker() {
 	DB.Create(&b)
 }
 
+// SelectAllUser selects all user rows from the User table
 func (u *User) SelectAllUser() {
 	DB.Find(&u)
 }
 
+// SelectLikeUser selects all user rows from the User table that share similar usernames or names to the likeString arg
 func (u *User) SelectLikeUser(likeString string) {
 	DB.Where("username LIKE ? OR name LIKE ?", likeString, likeString).Find(&u)
 }
 
+// CreateUser creates a new SQL User row
 func (u *User) CreateUser() {
 	DB.Create(&u)
 }
