@@ -48,16 +48,16 @@ func Open(filename string) {
 	}
 }
 
-func (u *Busker) SelectAll() {
-	DB.Find(&u)
+func (b *Busker) SelectAll() {
+	DB.Find(&b)
 }
 
-func (u *Busker) SelectLike(likeString string) {
-	DB.Where("username LIKE ? OR name LIKE ?", likeString, likeString).Find(&u)
+func (b *Busker) SelectLike(likeString string) {
+	DB.Where("username LIKE ? OR name LIKE ?", likeString, likeString).Find(&b)
 }
 
-func (u *Busker) CreateBusker() {
-	DB.Create(&u)
+func (b *Busker) CreateBusker() {
+	DB.Create(&b)
 }
 
 func (u *User) SelectAllUser() {
