@@ -15,4 +15,5 @@ func BuskerApi(c *gin.Context) {
 	}
 	scanTo := &dbcrud.Busker{}
 	dbcrud.SelectLike(scanTo, busker)
+	c.JSON(200, scanTo)
 }
