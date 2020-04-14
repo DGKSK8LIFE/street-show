@@ -23,6 +23,13 @@ type Busker struct {
 	Id       uint64 `gorm:"column:id" json:"id"`
 }
 
+type User struct {
+	Username string `gorm"column:username" json:"username"`
+	Name     string `gorm:"column:name" json:"name"`
+	Email    string `gorm:"column:email" json:"email"`
+	Id       uint64 `gorm:"column:id" json:"id"`
+}
+
 var DB *gorm.DB
 
 func Open(filename string) {
