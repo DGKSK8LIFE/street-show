@@ -10,5 +10,5 @@ type UserAndBusker struct {
 }
 
 func BuskerApi(c *gin.Context) {
-
+	busker := c.Param("busker")
 }
