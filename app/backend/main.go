@@ -15,5 +15,6 @@ func init() {
 func main() {
 	r := gin.Default()
 	r.GET("/api/busker", handler.BuskerApi)
+	r.GET("/api/user", handler.UserApi)
 	r.Run()
 }
