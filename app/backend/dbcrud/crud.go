@@ -4,7 +4,6 @@ import (
 	"fmt"
 	"io/ioutil"
 	"log"
-	"street-show/app/backend/handler"
 
 	"github.com/jinzhu/gorm"
 	_ "github.com/jinzhu/gorm/dialects/mysql"
@@ -16,6 +15,13 @@ type DB_info struct {
 	Password string `yaml:"password"`
 	Port     uint32 `yaml:"port"`
 	Db_name  string `yaml:"db_name"`
+}
+
+type UserAndBusker struct {
+	Username string
+	Name     string
+	Email    string
+	Id       uint64
 }
 
 var DB *gorm.DB
@@ -36,10 +42,10 @@ func Open(filename string) {
 	}
 }
 
-func SelectAll(u *handler.UserAndBusker) interface{} {
-	return DB.Find(&u)
+func SelectAll(u *UserAndBusker) {
+	DB.Find(&u)
 }
 
-func SelectLike(u *handler.UserAndBusker, likeString string) interface{} {
-	return DB.Where("username LIKE ? OR name LIKE ?", likeString, likeString).Find(&u)
+func SelectLike(u *UserAndBusker, likeString string) {
+	DB.Where("username LIKE ? OR name LIKE ?", likeString, likeString).Find(&u)
 }
