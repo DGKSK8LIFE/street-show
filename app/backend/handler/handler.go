@@ -1,3 +1,7 @@
+/*
+	handler holds all of the routed functions directly called in main.go;
+	handler is a fetch api which the React/React-Native view uses
+*/
 package handler
 
 import (
@@ -8,6 +12,7 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
+// BuskerApi serves json of buskers' data, utilizing the dbcrud module (mine)
 func BuskerApi(c *gin.Context) {
 	busker, err := url.QueryUnescape(c.DefaultQuery("busker", ""))
 	if err != nil {
@@ -18,6 +23,7 @@ func BuskerApi(c *gin.Context) {
 	c.JSON(200, scanTo)
 }
 
+// BuskerApi serves json of users' data, utilizing the dbcrud module (mine)
 func UserApi(c *gin.Context) {
 	user, err := url.QueryUnescape(c.DefaultQuery("user", ""))
 	if err != nil {
