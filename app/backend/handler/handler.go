@@ -2,7 +2,7 @@ package handler
 
 import "github.com/gin-gonic/gin"
 
-type User struct {
+type UserAndBusker struct {
 	Username string
 	Name     string
 	Email    string

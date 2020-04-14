@@ -36,6 +36,6 @@ func Open(filename string) {
 	}
 }
 
-func SelectAll(u *handler.User) interface{} {
+func SelectAll(u *handler.UserAndBusker) interface{} {
 	return DB.Find(u)
 }
