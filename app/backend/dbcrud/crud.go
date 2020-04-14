@@ -16,14 +16,14 @@ type DB_info struct {
 	Port     uint32 `yaml:"port"`
 }
 
-type Busker struct {
+type User struct {
 	Username string `gorm"column:username" json:"username"`
 	Name     string `gorm:"column:name" json:"name"`
 	Email    string `gorm:"column:email" json:"email"`
 	Id       uint64 `gorm:"column:id" json:"id"`
 }
 
-type User struct {
+type Busker struct {
 	Username string `gorm"column:username" json:"username"`
 	Name     string `gorm:"column:name" json:"name"`
 	Email    string `gorm:"column:email" json:"email"`
