@@ -40,6 +40,6 @@ func SelectAll(u *handler.UserAndBusker) interface{} {
 	return DB.Find(&u)
 }
 
-func SelectLike(u *handler.UserAndBusker) interface{} {
-	return DB.Where("username LIKE ? OR name LIKE ?", u.Username, u.Username).Find(&u)
+func SelectLike(u *handler.UserAndBusker, likeString string) interface{} {
+	return DB.Where("username LIKE ? OR name LIKE ?", likeString, likeString).Find(&u)
 }
