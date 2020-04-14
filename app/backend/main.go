@@ -8,6 +8,7 @@ import (
 	_ "github.com/jinzhu/gorm/dialects/mysql"
 )
 
+// init precedingly opens database
 func init() {
 	dbcrud.Open("db_info.yaml")
 }
