@@ -42,10 +42,10 @@ func Open(filename string) {
 	}
 }
 
-func SelectAll(u *Busker) {
+func (u *Busker) SelectAll() {
 	DB.Find(&u)
 }
 
-func SelectLike(u *Busker, likeString string) {
+func (u *Busker) SelectLike(likeString string) {
 	DB.Where("username LIKE ? OR name LIKE ?", likeString, likeString).Find(&u)
 }
