@@ -13,6 +13,6 @@ func BuskerApi(c *gin.Context) {
 	if err != nil {
 		log.Fatalf("QueryUnescape error: %s\n", err)
 	}
-	scanTo := &dbcrud.UserAndBusker{}
+	scanTo := &dbcrud.Busker{}
 	dbcrud.SelectLike(scanTo, busker)
 }

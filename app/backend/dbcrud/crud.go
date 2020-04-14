@@ -17,11 +17,11 @@ type DB_info struct {
 	Db_name  string `yaml:"db_name"`
 }
 
-type UserAndBusker struct {
-	Username string
-	Name     string
-	Email    string
-	Id       uint64
+type Busker struct {
+	Username string `gorm"column:username"`
+	Name     string `gorm:"column:name"`
+	Email    string `gorm:"column:email"`
+	Id       uint64 `gorm:"column:id"`
 }
 
 var DB *gorm.DB
@@ -42,10 +42,10 @@ func Open(filename string) {
 	}
 }
 
-func SelectAll(u *UserAndBusker) {
+func SelectAll(u *Busker) {
 	DB.Find(&u)
 }
 
-func SelectLike(u *UserAndBusker, likeString string) {
+func SelectLike(u *Busker, likeString string) {
 	DB.Where("username LIKE ? OR name LIKE ?", likeString, likeString).Find(&u)
 }
