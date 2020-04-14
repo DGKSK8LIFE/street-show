@@ -37,5 +37,9 @@ func Open(filename string) {
 }
 
 func SelectAll(u *handler.UserAndBusker) interface{} {
-	return DB.Find(u)
+	return DB.Find(&u)
+}
+
+func SelectLike(u *handler.UserAndBusker) interface{} {
+	return DB.Where("username LIKE ? OR name LIKE ?", u.Username, u.Username).Find(&u)
 }
