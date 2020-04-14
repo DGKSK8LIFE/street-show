@@ -1,3 +1,7 @@
+/*
+	dbcrud contains all code that interacts with a database;
+	also holds the datastructures that the fetch api (handler) utilizes
+*/
 package dbcrud
 
 import (
