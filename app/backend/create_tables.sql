@@ -1,4 +1,4 @@
-CREATE TABLE user (
+CREATE TABLE User (
 	username text,
 	name text,
 	email text,
@@ -6,7 +6,7 @@ CREATE TABLE user (
 	PRIMARY KEY (id)
 );
 
-CREATE TABLE busker (
+CREATE TABLE Busker (
 	username text,
 	name text,
 	email text,
