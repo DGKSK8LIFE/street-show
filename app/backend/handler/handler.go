@@ -9,6 +9,6 @@ type User struct {
 	Id       uint64
 }
 
-func UserApi(c *gin.Context) {
+func BuskerApi(c *gin.Context) {
 
 }
