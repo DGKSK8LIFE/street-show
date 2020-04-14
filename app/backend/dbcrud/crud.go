@@ -14,7 +14,6 @@ type DB_info struct {
 	User     string `yaml:"user"`
 	Password string `yaml:"password"`
 	Port     uint32 `yaml:"port"`
-	Db_name  string `yaml:"db_name"`
 }
 
 type Busker struct {
@@ -36,7 +35,7 @@ func Open(filename string) {
 	if err != nil {
 		log.Fatalf("unmarshalling problem: %s\n", err)
 	}
-	DB, err = gorm.Open("mysql", fmt.Sprintf("%s:%s@tcp(localhost:%d)/%s", infoStruct.User, infoStruct.Password, infoStruct.Port, infoStruct.Db_name))
+	DB, err = gorm.Open("mysql", fmt.Sprintf("%s:%s@tcp(localhost:%d)/Street-Show", infoStruct.User, infoStruct.Password, infoStruct.Port))
 	if err != nil {
 		log.Fatalf("database opening error: %s\n", err)
 	}

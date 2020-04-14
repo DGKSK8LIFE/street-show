@@ -1,3 +1,6 @@
+CREATE DATABASE Street-Show;
+USE Street-Show;
+
 CREATE TABLE User (
 	username text,
 	name text,
