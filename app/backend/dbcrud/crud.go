@@ -67,22 +67,22 @@ func (b *Busker) SelectLike(likeString string) {
 	DB.Where("username LIKE ? OR name LIKE ?", likeString, likeString).Find(&b)
 }
 
-// CreateBusker creates a new SQL Busker row
+// Create creates a new SQL Busker row
 func (b *Busker) Create() {
 	DB.Create(&b)
 }
 
-// SelectAllUser selects all user rows from the User table
+// SelectAll selects all user rows from the User table
 func (u *User) SelectAll() {
 	DB.Find(&u)
 }
 
-// SelectLikeUser selects all user rows from the User table that share similar usernames or names to the likeString arg
+// SelectLike selects all user rows from the User table that share similar usernames or names to the likeString arg
 func (u *User) SelectLike(likeString string) {
 	DB.Where("username LIKE ? OR name LIKE ?", likeString, likeString).Find(&u)
 }
 
-// CreateUser creates a new SQL User row
+// Create creates a new SQL User row
 func (u *User) Create() {
 	DB.Create(&u)
 }
