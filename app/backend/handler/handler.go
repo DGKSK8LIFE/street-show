@@ -34,8 +34,8 @@ func UserApi(c *gin.Context) {
 	}
 	scanTo := &dbcrud.User{}
 	if len(user) > 0 {
-		scanTo.SelectLikeUser(user)
+		scanTo.SelectLike(user)
 	}
-	scanTo.SelectAllUser()
+	scanTo.SelectAll()
 	c.JSON(200, scanTo)
 }
