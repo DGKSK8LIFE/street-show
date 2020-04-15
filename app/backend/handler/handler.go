@@ -19,7 +19,10 @@ func BuskerApi(c *gin.Context) {
 		log.Fatalf("QueryUnescape error: %s\n", err)
 	}
 	scanTo := &dbcrud.Busker{}
-	scanTo.SelectLike(busker)
+	if len(busker) > 0 {
+		scanTo.SelectLike(busker)
+	}
+	scanTo.SelectAll()
 	c.JSON(200, scanTo)
 }
 
