@@ -33,6 +33,9 @@ func UserApi(c *gin.Context) {
 		log.Fatalf("QueryUnescape error: %s\n", err)
 	}
 	scanTo := &dbcrud.User{}
-	scanTo.SelectLikeUser(user)
+	if len(user) > 0 {
+		scanTo.SelectLikeUser(user)
+	}
+	scanTo.SelectAllUser()
 	c.JSON(200, scanTo)
 }
