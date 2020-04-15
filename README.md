@@ -14,3 +14,5 @@ An application that allows buskers to show the location and time of their perfor
 - JSON 
 
 ## Architectural components
+
+- FetchAPI
