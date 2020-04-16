@@ -87,10 +87,10 @@ func (u *User) Create() {
 	DB.Create(&u)
 }
 
-func (u *User) ShowUserById(id int) {
+func (u *User) ShowById(id int) {
 	DB.Where("id=?", id).Find(&u)
 }
 
-func (b *Busker) ShowUserById(id int) {
+func (b *Busker) ShowById(id int) {
 	DB.Where("id=?", id).Find(&b)
 }
