@@ -86,3 +86,7 @@ func (u *User) SelectLike(likeString string) {
 func (u *User) Create() {
 	DB.Create(&u)
 }
+
+func (u *User) ShowUserById(id int) {
+	DB.Where("id=?", id).Find(&u)
+}
