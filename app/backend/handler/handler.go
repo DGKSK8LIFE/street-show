@@ -13,7 +13,7 @@ import (
 )
 
 // BuskerApi serves json of buskers' data, utilizing the dbcrud module (mine)
-func BuskerApi(c *gin.Context) {
+func BuskerSearchApi(c *gin.Context) {
 	busker, err := url.QueryUnescape(c.DefaultQuery("busker", ""))
 	if err != nil {
 		log.Fatalf("QueryUnescape error: %s\n", err)
@@ -27,7 +27,7 @@ func BuskerApi(c *gin.Context) {
 }
 
 // UserApi serves json of users' data, utilizing the dbcrud module (mine)
-func UserApi(c *gin.Context) {
+func UserSearchApi(c *gin.Context) {
 	user, err := url.QueryUnescape(c.DefaultQuery("user", ""))
 	if err != nil {
 		log.Fatalf("QueryUnescape error: %s\n", err)
