@@ -90,3 +90,7 @@ func (u *User) Create() {
 func (u *User) ShowUserById(id int) {
 	DB.Where("id=?", id).Find(&u)
 }
+
+func (b *Busker) ShowUserById(id int) {
+	DB.Where("id=?", id).Find(&b)
+}
