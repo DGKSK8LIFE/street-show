@@ -21,6 +21,8 @@ func BuskerSearchApi(c *gin.Context) {
 	scanTo := &dbcrud.Busker{}
 	if len(busker) > 0 {
 		scanTo.SelectLike(busker)
+		c.JSON(200, scanTo)
+		return
 	}
 	scanTo.SelectAll()
 	c.JSON(200, scanTo)
@@ -35,7 +37,19 @@ func UserSearchApi(c *gin.Context) {
 	scanTo := &dbcrud.User{}
 	if len(user) > 0 {
 		scanTo.SelectLike(user)
+		c.JSON(200, scanTo)
+		return
 	}
 	scanTo.SelectAll()
 	c.JSON(200, scanTo)
 }
+
+/* func BuskerApi(c *gin.Context) {
+	id := c.DefaultQuery("id", "")
+	scanTo := &dbcrud.User{}
+	if len(id) > 0 {
+		scanTo.SelectById(id)
+	}
+
+}
+*/
