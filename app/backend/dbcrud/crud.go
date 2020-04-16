@@ -83,8 +83,10 @@ func (u *User) SelectLike(likeString string) {
 }
 
 // Create creates a new SQL User row
-func (u *User) Create() {
-	DB.Create(&u)
+func (u *User) Create() error {
+	if err := DB.Create(&u).Error; err != nil {
+		return err
+	}
 }
 
 // ShowById selects the row of a user by searching for rows that share the index
