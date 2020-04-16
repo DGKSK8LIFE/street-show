@@ -86,3 +86,13 @@ func (u *User) SelectLike(likeString string) {
 func (u *User) Create() {
 	DB.Create(&u)
 }
+
+// ShowById selects the row of a user by searching for rows that share the index
+func (u *User) ShowById(id int) {
+	DB.Where("id=?", id).Find(&u)
+}
+
+// ShowById selects the row of a busker by searching for rows that share the index
+func (b *Busker) ShowById(id int) {
+	DB.Where("id=?", id).Find(&b)
+}

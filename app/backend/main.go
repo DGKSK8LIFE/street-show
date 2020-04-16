@@ -16,7 +16,9 @@ func init() {
 // main just declares routes and imports the handler module (mine) to serve accordingly
 func main() {
 	r := gin.Default()
+	r.GET("/api/search/busker", handler.BuskerSearchApi)
+	r.GET("/api/search/user", handler.UserSearchApi)
 	r.GET("/api/busker", handler.BuskerApi)
-	r.GET("/api/user", handler.UserApi)
+	r.GET("/api/user", handler.BuskerApi)
 	r.Run()
 }
