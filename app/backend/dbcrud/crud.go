@@ -87,6 +87,7 @@ func (u *User) Create() error {
 	if err := DB.Create(&u).Error; err != nil {
 		return err
 	}
+	return nil
 }
 
 // ShowById selects the row of a user by searching for rows that share the index
