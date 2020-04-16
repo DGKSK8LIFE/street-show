@@ -44,6 +44,7 @@ func UserSearchApi(c *gin.Context) {
 	c.JSON(200, scanTo)
 }
 
+// BuskerApi returns serialization of database row with precise id sent is a querystring
 func BuskerApi(c *gin.Context) {
 	id := c.DefaultQuery("id", "")
 	scanTo := &dbcrud.User{}
@@ -52,5 +53,5 @@ func BuskerApi(c *gin.Context) {
 		c.JSON(200, scanTo)
 		return
 	}
-
+	c.Status(404)
 }
