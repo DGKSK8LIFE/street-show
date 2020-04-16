@@ -12,6 +12,7 @@ An application that allows buskers to show the location and time of their perfor
 - Gorm
 - MySQL
 - JSON 
+- Abstraction packages that I wrote
 
 ## Architectural components
 
