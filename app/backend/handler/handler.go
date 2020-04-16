@@ -26,7 +26,7 @@ func BuskerApi(c *gin.Context) {
 	c.JSON(200, scanTo)
 }
 
-// BuskerApi serves json of users' data, utilizing the dbcrud module (mine)
+// UserApi serves json of users' data, utilizing the dbcrud module (mine)
 func UserApi(c *gin.Context) {
 	user, err := url.QueryUnescape(c.DefaultQuery("user", ""))
 	if err != nil {
