@@ -19,5 +19,6 @@ func main() {
 	r.GET("/api/search/busker", handler.BuskerSearchApi)
 	r.GET("/api/search/user", handler.UserSearchApi)
 	r.GET("/api/busker", handler.BuskerApi)
+	r.GET("/api/user", handler.BuskerApi)
 	r.Run()
 }
