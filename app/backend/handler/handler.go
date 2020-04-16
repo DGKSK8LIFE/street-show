@@ -44,12 +44,13 @@ func UserSearchApi(c *gin.Context) {
 	c.JSON(200, scanTo)
 }
 
-/* func BuskerApi(c *gin.Context) {
+func BuskerApi(c *gin.Context) {
 	id := c.DefaultQuery("id", "")
 	scanTo := &dbcrud.User{}
 	if len(id) > 0 {
-		scanTo.SelectById(id)
+		scanTo.ShowById(id)
+		c.JSON(200, scanTo)
+		return
 	}
 
 }
-*/
