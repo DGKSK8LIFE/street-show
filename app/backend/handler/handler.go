@@ -7,7 +7,9 @@ package handler
 import (
 	"log"
 	"net/url"
+	"strconv"
 	"street-show/app/backend/dbcrud"
+	"strings"
 
 	"github.com/gin-gonic/gin"
 )
@@ -49,7 +51,7 @@ func BuskerApi(c *gin.Context) {
 	id := c.DefaultQuery("id", "")
 	scanTo := &dbcrud.Busker{}
 	if len(id) > 0 {
-		scanTo.ShowById(id)
+		scanTo.ShowById(StrToInt(id))
 		c.JSON(200, scanTo)
 		return
 	}
@@ -61,9 +63,14 @@ func UserApi(c *gin.Context) {
 	id := c.DefaultQuery("id", "")
 	scanTo := &dbcrud.User{}
 	if len(id) > 0 {
-		scanTo.ShowById(id)
+		err := scanTo.ShowById(StrToInt(id))
 		c.JSON(200, scanTo)
 		return
 	}
 	c.Status(404)
+}
+
+func StrToInt(str string) (int, error) {
+	nonFractionalPart := strings.Split(str, ".")
+	return strconv.Atoi(nonFractionalPart[0])
 }

@@ -83,7 +83,7 @@ func (u *User) SelectLike(likeString string) {
 }
 
 // Create creates a new SQL User row
-func (u *User) Create() error {
+func (u *User) Create() {
 	DB.Create(&u)
 }
 
