@@ -17,3 +17,5 @@ An application that allows buskers to show the location and time of their perfor
 ## Architectural components
 
 - FetchAPI
+- SQL Server
+- Binary Search (eventually)
