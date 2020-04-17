@@ -51,7 +51,11 @@ func BuskerApi(c *gin.Context) {
 	id := c.DefaultQuery("id", "")
 	scanTo := &dbcrud.Busker{}
 	if len(id) > 0 {
-		scanTo.ShowById(StrToInt(id))
+		conversion, err := StrToInt(id)
+		if err != nil {
+			log.Fatalf("ScanTo error: %s\n", err)
+		}
+		scanTo.ShowById(conversion)
 		c.JSON(200, scanTo)
 		return
 	}
@@ -63,7 +67,11 @@ func UserApi(c *gin.Context) {
 	id := c.DefaultQuery("id", "")
 	scanTo := &dbcrud.User{}
 	if len(id) > 0 {
-		err := scanTo.ShowById(StrToInt(id))
+		conversion, err := StrToInt(id)
+		if err != nil {
+			log.Fatalf("ScanTo error: %s\n", err)
+		}
+		scanTo.ShowById(conversion)
 		c.JSON(200, scanTo)
 		return
 	}
