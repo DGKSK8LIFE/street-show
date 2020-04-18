@@ -58,41 +58,65 @@ func Open(filename string) {
 }
 
 // SelectAll selects all busker rows from the Busker table
-func (b *Busker) SelectAll() {
-	DB.Find(&b)
+func (b *Busker) SelectAll() error {
+	if err := DB.Find(&b).Error; err != nil {
+		return err
+	}
+	return nil
 }
 
 // SelectLike selects all busker rows from the Busker table that share similar usernames or names to the likeString arg
-func (b *Busker) SelectLike(likeString string) {
-	DB.Where("username LIKE ? OR name LIKE ?", likeString, likeString).Find(&b)
+func (b *Busker) SelectLike(likeString string) error {
+	if err := DB.Where("username LIKE ? OR name LIKE ?", likeString, likeString).Find(&b).Error; err != nil {
+		return err
+	}
+	return nil
 }
 
 // Create creates a new SQL Busker row
-func (b *Busker) Create() {
-	DB.Create(&b)
+func (b *Busker) Create() error {
+	if err := DB.Create(&b).Error; err != nil {
+		return err
+	}
+	return nil
 }
 
 // SelectAll selects all user rows from the User table
-func (u *User) SelectAll() {
-	DB.Find(&u)
+func (u *User) SelectAll() error {
+	if err := DB.Find(&u).Error; err != nil {
+		return err
+	}
+	return nil
 }
 
 // SelectLike selects all user rows from the User table that share similar usernames or names to the likeString arg
-func (u *User) SelectLike(likeString string) {
-	DB.Where("username LIKE ? OR name LIKE ?", likeString, likeString).Find(&u)
+func (u *User) SelectLike(likeString string) error {
+	if err := DB.Where("username LIKE ? OR name LIKE ?", likeString, likeString).Find(&u).Error; err != nil {
+		return err
+	}
+	return nil
 }
 
 // Create creates a new SQL User row
-func (u *User) Create() {
-	DB.Create(&u)
+func (u *User) Create() error {
+	if err := DB.Create(&u).Error; err != nil {
+		return err
+	}
+	return nil
 }
 
 // ShowById selects the row of a user by searching for rows that share the index
-func (u *User) ShowById(id int) {
-	DB.Where("id=?", id).Find(&u)
+func (u *User) ShowById(id int) error {
+	if err := DB.Where("id=?", id).Find(&u).Error; err != nil {
+		return err
+	}
+	return nil
 }
 
 // ShowById selects the row of a busker by searching for rows that share the index
-func (b *Busker) ShowById(id int) {
-	DB.Where("id=?", id).Find(&b)
+func (b *Busker) ShowById(id int) error {
+	if err := DB.Where("id=?", id).Find(&b).Error; err != nil {
+		return err
+	}
+	return nil
 }
