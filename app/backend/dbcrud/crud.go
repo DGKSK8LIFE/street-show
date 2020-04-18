@@ -66,8 +66,11 @@ func (b *Busker) SelectAll() error {
 }
 
 // SelectLike selects all busker rows from the Busker table that share similar usernames or names to the likeString arg
-func (b *Busker) SelectLike(likeString string) {
-	DB.Where("username LIKE ? OR name LIKE ?", likeString, likeString).Find(&b)
+func (b *Busker) SelectLike(likeString string) error {
+	if err := DB.Where("username LIKE ? OR name LIKE ?", likeString, likeString).Find(&b).Error; err != nil {
+		return err
+	}
+	return nil
 }
 
 // Create creates a new SQL Busker row
@@ -84,8 +87,11 @@ func (u *User) SelectAll() error {
 }
 
 // SelectLike selects all user rows from the User table that share similar usernames or names to the likeString arg
-func (u *User) SelectLike(likeString string) {
-	DB.Where("username LIKE ? OR name LIKE ?", likeString, likeString).Find(&u)
+func (u *User) SelectLike(likeString string) error {
+	if err := DB.Where("username LIKE ? OR name LIKE ?", likeString, likeString).Find(&u).Error; err != nil {
+		return err
+	}
+	return nil
 }
 
 // Create creates a new SQL User row
