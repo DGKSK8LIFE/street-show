@@ -22,7 +22,12 @@ func BuskerSearchApi(c *gin.Context) {
 	}
 	scanTo := &dbcrud.Busker{}
 	if len(busker) > 0 {
-		scanTo.SelectLike(busker)
+		err := scanTo.SelectLike(busker)
+		if err != nil {
+			log.Fatalf("SelectLike err: %s\n", err)
+			c.Status(404)
+			return
+		}
 		c.JSON(200, scanTo)
 		return
 	}
@@ -38,7 +43,12 @@ func UserSearchApi(c *gin.Context) {
 	}
 	scanTo := &dbcrud.User{}
 	if len(user) > 0 {
-		scanTo.SelectLike(user)
+		err := scanTo.SelectLike(user)
+		if err != nil {
+			log.Fatalf("SelectLike err: %s\n", err)
+			c.Status(404)
+			return
+		}
 		c.JSON(200, scanTo)
 		return
 	}
@@ -55,7 +65,12 @@ func BuskerApi(c *gin.Context) {
 		if err != nil {
 			log.Fatalf("ScanTo error: %s\n", err)
 		}
-		scanTo.ShowById(conversion)
+		err = scanTo.ShowById(conversion)
+		if err != nil {
+			log.Fatalf("ShowById err: %s\n", err)
+			c.Status(404)
+			return
+		}
 		c.JSON(200, scanTo)
 		return
 	}
@@ -71,7 +86,12 @@ func UserApi(c *gin.Context) {
 		if err != nil {
 			log.Fatalf("ScanTo error: %s\n", err)
 		}
-		scanTo.ShowById(conversion)
+		err = scanTo.ShowById(conversion)
+		if err != nil {
+			log.Fatalf("ShowById err: %s\n", err)
+			c.Status(404)
+			return
+		}
 		c.JSON(200, scanTo)
 		return
 	}
