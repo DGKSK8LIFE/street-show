@@ -74,8 +74,11 @@ func (b *Busker) SelectLike(likeString string) error {
 }
 
 // Create creates a new SQL Busker row
-func (b *Busker) Create() {
-	DB.Create(&b)
+func (b *Busker) Create() error {
+	if err := DB.Create(&b).Error; err != nil {
+		return err
+	}
+	return nil
 }
 
 // SelectAll selects all user rows from the User table
@@ -95,8 +98,11 @@ func (u *User) SelectLike(likeString string) error {
 }
 
 // Create creates a new SQL User row
-func (u *User) Create() {
-	DB.Create(&u)
+func (u *User) Create() error {
+	if err := DB.Create(&u).Error; err != nil {
+		return err
+	}
+	return nil
 }
 
 // ShowById selects the row of a user by searching for rows that share the index
