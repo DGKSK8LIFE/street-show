@@ -106,11 +106,17 @@ func (u *User) Create() error {
 }
 
 // ShowById selects the row of a user by searching for rows that share the index
-func (u *User) ShowById(id int) {
-	DB.Where("id=?", id).Find(&u)
+func (u *User) ShowById(id int) error {
+	if err := DB.Where("id=?", id).Find(&u).Error; err != nil {
+		return err
+	}
+	return nil
 }
 
 // ShowById selects the row of a busker by searching for rows that share the index
-func (b *Busker) ShowById(id int) {
-	DB.Where("id=?", id).Find(&b)
+func (b *Busker) ShowById(id int) error {
+	if err := DB.Where("id=?", id).Find(&b).Error; err != nil {
+		return err
+	}
+	return nil
 }
