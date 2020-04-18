@@ -16,3 +16,11 @@ CREATE TABLE Busker (
 	id int NOT NULL AUTO_INCREMENT,
 	PRIMARY KEY (id)
 );
+
+CREATE TABLE Performance (
+	username text,
+	coordinate POINT NOT NULL,
+	SPATIAL INDEX `SPATIAL` (coordinate)
+) ENGINE=InnoDB;
+
+
