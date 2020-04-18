@@ -58,8 +58,11 @@ func Open(filename string) {
 }
 
 // SelectAll selects all busker rows from the Busker table
-func (b *Busker) SelectAll() {
-	DB.Find(&b)
+func (b *Busker) SelectAll() error {
+	if err := DB.Find(&b).Error; err != nil {
+		return err
+	}
+	return nil
 }
 
 // SelectLike selects all busker rows from the Busker table that share similar usernames or names to the likeString arg
@@ -73,8 +76,11 @@ func (b *Busker) Create() {
 }
 
 // SelectAll selects all user rows from the User table
-func (u *User) SelectAll() {
-	DB.Find(&u)
+func (u *User) SelectAll() error {
+	if err := DB.Find(&u).Error; err != nil {
+		return err
+	}
+	return nil
 }
 
 // SelectLike selects all user rows from the User table that share similar usernames or names to the likeString arg
