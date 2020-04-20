@@ -13,6 +13,7 @@ An application that allows buskers to show the location and time of their perfor
 - MySQL
 - JSON 
 - Abstraction packages that I wrote
+- Docker
 
 ## Architectural components
 
