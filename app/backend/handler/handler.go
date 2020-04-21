@@ -98,6 +98,27 @@ func UserApi(c *gin.Context) {
 	c.Status(404)
 }
 
+// PerformanceApi returns serialization of database row with precise id sent in a querystring
+func PerformanceApi(c *gin.Context) {
+	id := c.DefaultQuery("id", "")
+	scanTo := &dbcrud.Performance{}
+	if len(id) > 0 {
+		conversion, err := StrToInt(id)
+		if err != nil {
+			log.Fatalf("ScanTo error: %s\n", err)
+		}
+		err = scanTo.ShowById(conversion)
+		if err != nil {
+			log.Fatalf("ShowById err: %s\n", err)
+			c.Status(404)
+			return
+		}
+		c.JSON(200, scanTo)
+		return
+	}
+	c.Status(404)
+}
+
 func StrToInt(str string) (int, error) {
 	nonFractionalPart := strings.Split(str, ".")
 	return strconv.Atoi(nonFractionalPart[0])
