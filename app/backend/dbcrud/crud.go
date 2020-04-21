@@ -14,6 +14,9 @@ import (
 	"gopkg.in/yaml.v2"
 )
 
+// DB is the instance of a gorm database
+var DB *gorm.DB
+
 // DB_info contains fields that correspond to the database configuration file, db_info.yaml
 type DB_info struct {
 	User     string `yaml:"user"`
@@ -43,9 +46,6 @@ type Performance struct {
 	// will work out how I'll manage coord field later...
 	Id uint64 `gorm:"column:id" json:"id"`
 }
-
-// DB is the instance of a gorm database
-var DB *gorm.DB
 
 // Open reads from the database config file (db_info.yaml), then accordingly establishes a localhost connection to the database
 func Open(filename string) {
