@@ -37,6 +37,7 @@ type Busker struct {
 	Id       uint64 `gorm:"column:id" json:"id"`
 }
 
+// Performance contains all fields that correspond  to the Performance MySQL columns
 type Performance struct {
 	Username string `gorm"column:username" json:"username"`
 	// will work out how I'll manage coord field later...
@@ -87,7 +88,7 @@ func (b *Busker) Create() error {
 	return nil
 }
 
-// ShowById selects the row of a busker by searching for rows that share the index
+// ShowById selects the row of a busker by searching for rows that share the id
 func (b *Busker) ShowById(id int) error {
 	if err := DB.Where("id=?", id).Find(&b).Error; err != nil {
 		return err
@@ -119,9 +120,41 @@ func (u *User) Create() error {
 	return nil
 }
 
-// ShowById selects the row of a user by searching for rows that share the index
+// ShowById selects the row of a user by searching for rows that share the id
 func (u *User) ShowById(id int) error {
 	if err := DB.Where("id=?", id).Find(&u).Error; err != nil {
+		return err
+	}
+	return nil
+}
+
+// SelectAll selects all performance rows from the Performance table
+func (p *Performance) SelectAll() error {
+	if err := DB.Find(&p).Error; err != nil {
+		return err
+	}
+	return nil
+}
+
+// SelectLike selects all performance rows from the Performance table that share similar usernames to the likeString arg
+func (p *Performance) SelectLike(likeString string) error {
+	if err := DB.Where("username LIKE ?", likeString).Find(&p).Error; err != nil {
+		return err
+	}
+	return nil
+}
+
+// Create creates a new SQL Performance row
+func (p *Performance) Create() error {
+	if err := DB.Create(&p).Error; err != nil {
+		return err
+	}
+	return nil
+}
+
+// ShowById selects the row of a Performance by searching for rows that share the id
+func (p *Performance) ShowById(id int) error {
+	if err := DB.Where("id=?", id).Find(&p).Error; err != nil {
 		return err
 	}
 	return nil
