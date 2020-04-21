@@ -126,3 +126,35 @@ func (u *User) ShowById(id int) error {
 	}
 	return nil
 }
+
+// SelectAll selects all performance rows from the Performance table
+func (p *Performance) SelectAll() error {
+	if err := DB.Find(&p).Error; err != nil {
+		return err
+	}
+	return nil
+}
+
+// SelectLike selects all performance rows from the Performance table that share similar usernames to the likeString arg
+func (p *Performance) SelectLike(likeString string) error {
+	if err := DB.Where("username LIKE ?", likeString).Find(&p).Error; err != nil {
+		return err
+	}
+	return nil
+}
+
+// Create creates a new SQL Performance row
+func (p *Performance) Create() error {
+	if err := DB.Create(&p).Error; err != nil {
+		return err
+	}
+	return nil
+}
+
+// ShowById selects the row of a Performance by searching for rows that share the id
+func (p *Performance) ShowById(id int) error {
+	if err := DB.Where("id=?", id).Find(&p).Error; err != nil {
+		return err
+	}
+	return nil
+}
