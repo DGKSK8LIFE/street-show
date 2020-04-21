@@ -119,6 +119,7 @@ func PerformanceApi(c *gin.Context) {
 	c.Status(404)
 }
 
+// StrToInt converts strings to integers
 func StrToInt(str string) (int, error) {
 	nonFractionalPart := strings.Split(str, ".")
 	return strconv.Atoi(nonFractionalPart[0])
