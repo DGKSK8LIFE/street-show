@@ -46,7 +46,9 @@ type Performance struct {
 // DB is the instance of a gorm database
 var DB *gorm.DB
 
-// Open reads from the database config file (db_info.yaml), then accordingly establishes a localhost connection to the database func Open(filename string) { infoStruct := &DB_info{}
+// Open reads from the database config file (db_info.yaml), then accordingly establishes a localhost connection to the database
+func Open(filename string) {
+	infoStruct := &DB_info{}
 	file, err := ioutil.ReadFile(filename)
 	if err != nil {
 		log.Fatalf("database info file error: %s\n", err)
