@@ -14,6 +14,8 @@ An application that allows buskers to show the location and time of their perfor
 - JSON 
 - Abstraction packages that I wrote
 - Docker
+- Open Street Map API
+- LeafletJS
 
 ## Architectural components
 
