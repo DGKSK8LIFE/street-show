@@ -8,20 +8,3 @@ height:100vh;
 width:100%;
 position: relative;
 }
-.searchbox{
-  position: absolute;
-  z-index: 1000;
-  left: 0; 
-  right: 0; 
-  margin-left: auto; 
-  margin-right: auto; 
-  width: fit-content;
-  margin-top: 2%;
-
-}
-#button{
-  margin-top: 0;
-}
-#outlined-search{
-  background-color: seashell;
-}
