@@ -100,7 +100,7 @@ func UserApi(c *gin.Context) {
 
 // PerformanceApi returns serialization of database row with precise id sent in a querystring
 func PerformanceApi(c *gin.Context) {
-	id := c.DefaultQuery("id", "")
+	id := c.Param("id")
 	scanTo := &dbcrud.Performance{}
 	if len(id) > 0 {
 		conversion, err := StrToInt(id)
