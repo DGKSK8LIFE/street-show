@@ -18,8 +18,8 @@ func main() {
 	r := gin.Default()
 	r.GET("/api/search/busker", handler.BuskerSearchApi)
 	r.GET("/api/search/user", handler.UserSearchApi)
-	r.GET("/api/busker", handler.BuskerApi)
-	r.GET("/api/user", handler.BuskerApi)
-	r.GET("/api/performance", handler.PerformanceApi)
+	r.GET("/api/busker/:id", handler.BuskerApi)
+	r.GET("/api/user/:id", handler.BuskerApi)
+	r.GET("/api/performance/:id", handler.PerformanceApi)
 	r.Run()
 }
