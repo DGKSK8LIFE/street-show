@@ -56,10 +56,11 @@ export default class EventsExample extends Component<{}, State> {
             <Map
                 center={this.state.latlng}
                 length={4}
-                onClick={this.handleClick}
+                onClick={this.handleClick} z
                 onLocationfound={this.handleLocationFound}
                 ref={this.mapRef}
-                zoom={13}>
+                zoom={13}
+                zoomControl={false}>
                 <TileLayer
                     attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
