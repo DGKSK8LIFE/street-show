@@ -34,7 +34,7 @@ type User struct {
 
 // Busker contains all fields that correspond to the Busker MySQL columns
 type Busker struct {
-	Username string `gorm"column:username" json:"username"`
+	Username string `gorm:"column:username" json:"username"`
 	Name     string `gorm:"column:name" json:"name"`
 	Email    string `gorm:"column:email" json:"email"`
 	Id       uint64 `gorm:"column:id" json:"id"`
@@ -42,7 +42,7 @@ type Busker struct {
 
 // Performance contains all fields that correspond  to the Performance MySQL columns
 type Performance struct {
-	Username string `gorm"column:username" json:"username"`
+	Username string `gorm:"column:username" json:"username"`
 	// will work out how I'll manage coord field later...
 	Id uint64 `gorm:"column:id" json:"id"`
 }
